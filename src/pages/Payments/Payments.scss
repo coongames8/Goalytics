@@ -12,6 +12,11 @@
 
 .payment-glass {
   width: 100%;
+  min-heigh: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   max-width: 800px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
