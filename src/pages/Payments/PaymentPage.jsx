@@ -296,10 +296,10 @@ function PaymentContent({ setUserData }) {
               <PayPalButtons
                 key={paypalKey} // This forces re-render when key changes
                 style={{ 
-                  layout: "vertical",
+                  layout: "horizontal",
                   color: "blue",
                   shape: "rect",
-                  label: "paypal"
+                  label: "pay with paypal"
                 }}
                 createOrder={createPayPalOrder}
                 onApprove={onPayPalApprove}
