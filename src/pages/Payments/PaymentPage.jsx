@@ -297,9 +297,9 @@ function PaymentContent({ setUserData }) {
                 key={paypalKey} // This forces re-render when key changes
                 style={{ 
                   layout: "horizontal",
-                  color: "blue",
-                  shape: "rect",
-                  label: "pay with paypal"
+                  color: "gold",
+                  shape: "pill",
+                  label: "pay"
                 }}
                 createOrder={createPayPalOrder}
                 onApprove={onPayPalApprove}
