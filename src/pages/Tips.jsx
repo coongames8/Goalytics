@@ -31,7 +31,7 @@ export default function Tips({ userData }) {
 		if (userData !== null) {
 			if (
 				userData.email === "kkibetkkoir@gmail.com" ||
-				userData.email === "arovanzgamez@gmail.com"
+				userData.email === "kevinyegon366@gmail.com"
 			) {
 				setIsPremium(true);
 			} else {
@@ -103,7 +103,7 @@ export default function Tips({ userData }) {
 	};
 	return (
 		<div className="tips">
-			<AppHelmet title={"Win11"} location={"/"} />
+			<AppHelmet title={"Goalytics"} location={"/"} />
 			<div className="container">
 				<div className="filter-wrapper">
 					<p>{formattedDate}</p>

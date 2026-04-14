@@ -1,9 +1,10 @@
-const CACHE_NAME = 'win11-cache';
+const CACHE_NAME = 'Goalytics-cache';
 const urlsToCache = [
     '/',
     '/index.html',
     '/manifest.json',
-    '/logo512.png'
+    '/logo512.png',
+    '/*.png'
 ];
 
 window.self.addEventListener('install', event => {

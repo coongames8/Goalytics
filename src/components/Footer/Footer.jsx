@@ -39,7 +39,7 @@ const Footer = ({ user }) => {
 		if (user !== null) {
 			setIsAdmin(
 				user.email === "kkibetkkoir@gmail.com" ||
-					user.email === "arovanzgamez@gmail.com"
+					user.email === "kevinyegon366@gmail.com"
 			);
 		}
 	}, [user]);
@@ -96,7 +96,7 @@ const Footer = ({ user }) => {
 				<div className="footer-divider"></div>
 
 				<div className="footer-links">
-					<p className="copyright">&copy; Win11 {new Date().getFullYear()}</p>
+					<p className="copyright">&copy; Goalytics {new Date().getFullYear()}</p>
 					<NavLink to="/about#faq" className="footer-link">
 						FAQ
 					</NavLink>
