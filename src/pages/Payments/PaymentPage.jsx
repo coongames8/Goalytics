@@ -2,6 +2,7 @@ import { useState } from "react";
 import AppHelmet from "../../components/AppHelmet";
 import PaypalPayments from "./PaypalPayments";
 import KoraPayments from "./mobile/KoraPayments";
+import PaystackPaymentsV2 from "./mobile/PaystackPaymentsV2";
 import CryptoPayments from "./CryptoPayments";
 import GooglePayments from "./GooglePayments";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,9 +12,24 @@ import {
   faGooglePay,
 } from "@fortawesome/free-brands-svg-icons";
 import "./Payments.scss";
+import { useCurrency } from '../../CurrencyContext';
 
 export default function PaymentPage({ setUserData }) {
   const [paymentType, setPaymentType] = useState("mpesa");
+  const { 
+    selectedCountry, 
+    setSelectedCountry,
+    showCountrySelector,
+    setShowCountrySelector,
+    userCountry,
+    convertPrice,
+    getSymbol,
+    getCurrencyCode,
+    getCountries,
+    isLoadingRate,
+    symbol,
+    currency
+  } = useCurrency();
 
   // Payment methods
   const paymentMethods = [
@@ -48,9 +64,9 @@ export default function PaymentPage({ setUserData }) {
       case "crypto":
         return <CryptoPayments setUserData={setUserData} />;
       case "mpesa":
-        return <KoraPayments setUserData={setUserData} />;
+        return currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;
       default:
-        return <KoraPayments setUserData={setUserData} />;
+        return currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;
     }
   };
 
