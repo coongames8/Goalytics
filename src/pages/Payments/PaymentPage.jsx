@@ -64,9 +64,9 @@ export default function PaymentPage({ setUserData }) {
       case "crypto":
         return <CryptoPayments setUserData={setUserData} />;
       case "mpesa":
-        return <KoraPayments setUserData={setUserData} />//currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;
+        return currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;//<KoraPayments setUserData={setUserData} />
       default:
-        return <KoraPayments setUserData={setUserData} />//currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;
+        return currency === "KES" ? <PaystackPaymentsV2 setUserData={setUserData} /> : <KoraPayments setUserData={setUserData} />;//<KoraPayments setUserData={setUserData} />
     }
   };
 
