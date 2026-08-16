@@ -43,7 +43,7 @@ export default function PaystackPayments({ setUserData }) {
     reference: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     email: currentUser?.email || "customer@example.com",
     amount: price * 100,
-    publicKey: "pk_live_de817273a211ab66a2bee0f643a5455bd29950c5",
+    publicKey: "pk_live_0b93a34f6265d8c2e8ca65ec33899b9a8a9077a9",
     currency: "KES",
     metadata: {
       name: currentUser?.email?.split("@")[0] || "Customer",
