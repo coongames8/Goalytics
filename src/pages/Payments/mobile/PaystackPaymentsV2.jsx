@@ -13,7 +13,8 @@ import {
 import "../Payments.scss";
 
 // API Configuration
-const API_BASE_URL = "https://payment-api-production-65ef.up.railway.app";
+const API_BASE_URL = "https://genuine-flow-production-b0ae.up.railway.app";
+const appId = import.meta.env.VITE_APP_ID
 
 export default function PaystackPaymentsV2({ setUserData }) {
   const { price, setPrice } = useContext(PriceContext);
@@ -60,7 +61,7 @@ export default function PaystackPaymentsV2({ setUserData }) {
       attempts++;
 
       try {
-        const response = await fetch(`${API_BASE_URL}/api/status/${reference}`);
+        const response = await fetch(`${API_BASE_URL}/api/status/${reference}?appId=${appId}`);
         const data = await response.json();
 
         if (data.success) {
@@ -114,6 +115,7 @@ export default function PaystackPaymentsV2({ setUserData }) {
   const submitOTP = async (reference, otp) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/submit-otp`, {
+        appId,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otp: otp.trim(), reference: reference }),
@@ -157,6 +159,7 @@ export default function PaystackPaymentsV2({ setUserData }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          appId,
           email: email,
           amount: price,
           phone: formattedPhone,
