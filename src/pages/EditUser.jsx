@@ -105,69 +105,72 @@ export default function EditUser({ setUserData }) {
 	}, [currentUser]);
 
 	return (
-		<div className="admin-tips">
+		<div className="admin-glass">
 			<AppHelmet title={"Add Tip"} location={"/admin/tips"} />
 			<h1>Update User</h1>
 			{loading && <Loader />}
 			{!loading && (
-				<form onSubmit={handleSubmit}>
-					<div className="input-container">
-						<label htmlFor="username">Username: </label>
-						<input
-							type="text"
-							placeholder="@someone"
-							id="username"
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-						/>
-					</div>
-					<div className="input-container">
-						<label htmlFor="email">Email:</label>
-						<input
-							type="text"
-							placeholder="example@gmail.com"
-							id="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							readOnly
-						/>
-					</div>
-					<div className="input-container">
-						<label htmlFor="subscription">Subscription:</label>
-						<input
-							type="text"
-							placeholder="subscription"
-							id="subscription"
-							value={subscription}
-							onChange={(e) => setSubscription(e.target.value)}
-							readOnly={!isAdmin}
-						/>
-					</div>
-					{
-						<div className="input-container">
-							<label htmlFor="subDate">Subscribed On: </label>
-							<input
-								type="datetime-local"
-								id="subDate"
-								value={subDate}
-								onChange={(e) => setSubDate(e.target.value)}
-								readOnly={!isAdmin}
-							/>
-						</div>
-					}
-					<div className="input-container">
-						<label htmlFor="premium">Is premium</label>
-						<input
-							type="checkbox"
-							placeholder="premium"
-							id="premium"
-							onChange={(e) => setIsPremium(e.target.checked)}
-							checked={isPremium}
-							readOnly={!isAdmin}
-						/>
-					</div>
+				<form onSubmit={handleSubmit} className="admin-form">
+					<div className="form-grid">
+                        <div className="form-group">
+                        	<label htmlFor="username">Username: </label>
+                        	<input
+                        		type="text"
+                        		placeholder="@someone"
+                        		id="username"
+                        		value={username}
+                        		onChange={(e) => setUsername(e.target.value)}
+                        	/>
+                        </div>
+                        <div className="form-group">
+                        	<label htmlFor="email">Email:</label>
+                        	<input
+                        		type="text"
+                        		placeholder="example@gmail.com"
+                        		id="email"
+                        		value={email}
+                        		onChange={(e) => setEmail(e.target.value)}
+                        		readOnly
+                        	/>
+                        </div>
+                        <div className="form-group">
+                        	<label htmlFor="subscription">Subscription:</label>
+                        	<input
+                        		type="text"
+                        		placeholder="subscription"
+                        		id="subscription"
+                        		value={subscription}
+                        		onChange={(e) => setSubscription(e.target.value)}
+                        		readOnly={!isAdmin}
+                        	/>
+                        </div>
+                        {
+                        	<div className="form-group">
+                        		<label htmlFor="subDate">Subscribed On: </label>
+                        		<input
+                        			type="datetime-local"
+                        			id="subDate"
+                        			value={subDate}
+                        			onChange={(e) => setSubDate(e.target.value)}
+                        			readOnly={!isAdmin}
+                        		/>
+                        	</div>
+                        }
+                        <div className="form-group">
+                        	<label htmlFor="premium">Is premium</label>
+                        	<input
+                        		type="checkbox"
+                        		placeholder="premium"
+                        		id="premium"
+                        		onChange={(e) => setIsPremium(e.target.checked)}
+                        		checked={isPremium}
+                        		readOnly={!isAdmin}
+                        	/>
+                        </div>
+                    </div>
 
-					<span
+					<div
+					    className="form-actions"
 						style={{
 							width: "100%",
 							display: "flex",
@@ -177,16 +180,16 @@ export default function EditUser({ setUserData }) {
 					>
 						<button
 							type="submit"
-							className="btn"
+							className="btn submit-btn"
 							title="Submit"
 							aria-label="add"
 						>
 							Update
 						</button>
-						<span className="btn" onClick={() => window.history.back()}>
+						<button className="btn cancel-btn" onClick={() => window.history.back()}>
 							DONE
-						</span>
-					</span>
+						</button>
+					</div>
 				</form>
 			)}
 			{loading && <Loader />}
