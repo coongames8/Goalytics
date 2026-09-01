@@ -105,7 +105,7 @@ export default function EditUser({ setUserData }) {
 	}, [currentUser]);
 
 	return (
-		<div className="admin">
+		<div className="admin-glass">
 			<AppHelmet title={"Add Tip"} location={"/admin/tips"} />
 			<h1>Update User</h1>
 			{loading && <Loader />}
